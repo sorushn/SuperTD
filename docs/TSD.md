@@ -10,7 +10,7 @@ Basic backend and framework for a simple tower defense game.
 - Enemy monsters walk down the lanes, dealing damage to the main building when they reach it, disappearing afterwards
 - The Player builds Towers on non-lane tiles, in order to stop the monsters from reaching the main buidling
 - Bulding towers costs gold. Gold is acquired by killing towers and finishing waves.
-- Each monster is defined by the following parameters: 
+- Each monster is defined by the following parameters:
   - HP/Health Points (Int): Is reduced every time the monster takes damage, and the monster is destroyed when HP reaches zero or negative
   - Speed (positive float): defines the number of tiles traversed by the monster per engine tick
   - Damage (positive float): defines the damage dealt to the main building once the monster reaches it
