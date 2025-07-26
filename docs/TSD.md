@@ -26,3 +26,8 @@ Basic backend and framework for a simple tower defense game.
 - In addition to building towers, it's also possible to scrap or upgrade towers:
   - scrapping a tower destroys it, but returns a (set) percentage of building cost to player
   - Upgrading a tower replaces it with another tower. Upgrade paths are based on a design TBD
+
+## Technical Requirements
+
+- The engine should support reading the config from files with a chosen format. The format can be one of the following: YAML, JSON, TOML
+- There should be a debug mode, with specificities TBD

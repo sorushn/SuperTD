@@ -1,0 +1,7 @@
+# Example config file for SuperTD
+
+tick_interval = 1.0
+monster_speed_multiplier = 1.0
+monster_damage_multiplier = 1.0
+monster_hp_multiplier = 1.0
+debug = false

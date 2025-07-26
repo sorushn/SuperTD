@@ -1,6 +1,14 @@
 # src/game/monster.py
-from typing import Any, List
 from abc import ABC, abstractmethod
+from typing import Any, List
+
+# Base class for modifiers
+
+
+class Modifier:
+    def on_tick(self, monster, board, engine):
+        """Apply the modifier effect to the monster each tick."""
+        pass
 
 
 class Position:
@@ -10,14 +18,23 @@ class Position:
 
 
 class Monster(ABC):
-    def __init__(self, hp: int, speed: float, damage: float, armour: int, bounty: int, position: Position, modifiers: List[Any] = None):
+    def __init__(
+        self,
+        hp: int,
+        speed: float,
+        damage: float,
+        armour: int,
+        bounty: int,
+        position: Position,
+        modifiers: List[Any] = None
+    ):
         self.hp = hp
         self.speed = speed
         self.damage = damage
         self.armour = armour
         self.bounty = bounty
         self.position = position
-        self.modifiers = modifiers or []
+        self.modifiers = modifiers or []  # List[Modifier]
         self.alive = True
 
     @abstractmethod
@@ -34,4 +51,8 @@ class Monster(ABC):
 
 class BasicMonster(Monster):
     def on_tick(self, board, engine):
+        # Apply modifiers
+        for modifier in self.modifiers:
+            if hasattr(modifier, 'on_tick'):
+                modifier.on_tick(self, board, engine)
         self.position.progress += self.speed * engine.monster_speed_multiplier
